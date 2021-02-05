@@ -6,12 +6,13 @@ import {
   Route,
   NavLink,
 } from 'react-router-dom';
-import { Gallery, Parser } from './components';
+import { Gallery, Parser, Database } from './components';
 
 const navList = [
   { to: '/', text: 'Главная' },
   { to: '/gallery', text: 'Галерея' },
   { to: '/parser', text: 'Парсер' },
+  { to: '/database', text: 'База данных' },
 ];
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           <Switch>
             <Route exact path="/gallery" component={Gallery} />
             <Route exact path="/parser" component={Parser} />
+            <Route path="/database" component={Database} />
           </Switch>
         </div>
       </div>

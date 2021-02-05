@@ -1,0 +1,12 @@
+.list {
+  display: flex;
+
+  li {
+    padding: 10px;
+    margin-left: 10px;
+  }
+}
+
+.active {
+  color: red;
+}

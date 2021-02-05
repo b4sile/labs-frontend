@@ -1,2 +1,3 @@
-export { Gallery } from './Gallery';
-export { Parser } from './Parser';
+export { Gallery } from './gallery';
+export { Parser } from './parser';
+export { Database } from './database';
