@@ -1,0 +1,1 @@
+export { getPager } from './getPager';

@@ -1,0 +1,15 @@
+.list {
+  display: flex;
+
+  li {
+    padding: 10px;
+
+    &:hover {
+      background-color: rgb(204, 194, 194);
+    }
+  }
+}
+
+.active {
+  background-color: rgb(204, 194, 194);
+}
