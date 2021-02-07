@@ -1,2 +1,76 @@
 .wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.chose {
+  cursor: pointer;
+
+  &:hover {
+    color: red;
+  }
+}
+
+.images {
+  display: flex;
+  flex-wrap: wrap;
+
+  li {
+    position: relative;
+    margin: 5px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+      opacity: 0.8;
+
+      .delete {
+        display: block;
+      }
+    }
+  }
+
+  img {
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+  }
+}
+
+.delete {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.modal {
+  align-items: center;
+  justify-content: space-around;
+  display: flex;
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+.content {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  max-width: 70%;
+  background-color: white;
+}
+
+.change {
 }
