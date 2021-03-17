@@ -12,6 +12,7 @@ import {
   DatabaseList,
   Product,
   Questionnaire,
+  Qshow,
 } from './components';
 
 const navList = [
@@ -42,7 +43,8 @@ function App() {
             <Route exact path="/gallery" component={Gallery} />
             <Route exact path="/parser" component={Parser} />
             <Route exact path="/questionnaire" component={Questionnaire} />
-            <Route path="/parser/:id" component={Product} />
+            <Route exact path="/questionnaire/:id" component={Qshow} />
+            <Route exact path="/parser/:id" component={Product} />
             <Route path="/databases" component={DatabaseList} />
           </Switch>
         </div>
