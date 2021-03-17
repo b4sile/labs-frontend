@@ -11,7 +11,7 @@ const limit = 20;
 
 export const Table = ({ count, currentPage, setCurrentPage }) => {
   const [data, setData] = React.useState([]);
-  const { name: databaseName } = useParams();
+  const { tableName, databaseName } = useParams();
   const { url } = useRouteMatch();
   const { pages, totalPages } = getPager(count, currentPage, limit);
 
@@ -21,11 +21,11 @@ export const Table = ({ count, currentPage, setCurrentPage }) => {
     const parsed = queryString.parse(search);
     axios
       .get(
-        `/database/${databaseName}?offset=${parsed.offset}&limit=${parsed.limit}`
+        `/database/${databaseName}/${tableName}?offset=${parsed.offset}&limit=${parsed.limit}`
       )
       .then(({ data }) => setData(data.data))
       .catch((err) => console.log(err));
-  }, [databaseName, search]);
+  }, [tableName, search, databaseName]);
 
   return (
     <>
@@ -41,9 +41,13 @@ export const Table = ({ count, currentPage, setCurrentPage }) => {
           <tbody>
             {data.map((obj, ind) => (
               <tr key={`${obj.id}__${ind}`}>
-                {Object.values(obj).map((value, ind) => (
-                  <td key={`${value}__${ind}`}>{value}</td>
-                ))}
+                {Object.values(obj).map((value, ind) =>
+                  typeof value !== 'object' ? (
+                    <td key={`${value}__${ind}`}>{value}</td>
+                  ) : (
+                    ''
+                  )
+                )}
               </tr>
             ))}
           </tbody>

@@ -6,13 +6,20 @@ import {
   Route,
   NavLink,
 } from 'react-router-dom';
-import { Gallery, Parser, Database } from './components';
+import {
+  Gallery,
+  Parser,
+  DatabaseList,
+  Product,
+  Questionnaire,
+} from './components';
 
 const navList = [
   { to: '/', text: 'Главная' },
   { to: '/gallery', text: 'Галерея' },
   { to: '/parser', text: 'Парсер' },
-  { to: '/database', text: 'База данных' },
+  { to: '/databases', text: 'База данных' },
+  { to: '/questionnaire', text: 'Анкета' },
 ];
 
 function App() {
@@ -34,7 +41,9 @@ function App() {
           <Switch>
             <Route exact path="/gallery" component={Gallery} />
             <Route exact path="/parser" component={Parser} />
-            <Route path="/database" component={Database} />
+            <Route exact path="/questionnaire" component={Questionnaire} />
+            <Route path="/parser/:id" component={Product} />
+            <Route path="/databases" component={DatabaseList} />
           </Switch>
         </div>
       </div>

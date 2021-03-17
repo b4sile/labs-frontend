@@ -1,5 +1,11 @@
 import React from 'react';
-import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
+import {
+  Link,
+  Route,
+  Switch,
+  useRouteMatch,
+  useParams,
+} from 'react-router-dom';
 import axios from 'axios';
 import { Table } from '../table';
 import s from './Database.module.scss';
@@ -11,14 +17,15 @@ export const Database = () => {
   const [currentTable, setCurrentTable] = React.useState({});
   const [currentPage, setCurrentPage] = React.useState(1);
 
+  const { databaseName } = useParams();
   const { path, url } = useRouteMatch();
 
   React.useEffect(() => {
     axios
-      .get('/database')
-      .then(({ data }) => setTables(data.tables))
+      .get(`/database/${databaseName}`)
+      .then(({ data }) => setTables(data))
       .catch((err) => console.log(err));
-  }, []);
+  }, [databaseName]);
 
   return (
     <>
@@ -32,14 +39,16 @@ export const Database = () => {
             }}
             key={name}
           >
-            <Link to={`${url}/${name}?offset=0&limit=${limit}`}>{name}</Link>
+            <Link
+              to={`${url}/${name}?offset=0&limit=${limit}`}
+            >{`${name}(${count})`}</Link>
           </li>
         ))}
       </ul>
       <Switch>
         <Route
           exact
-          path={`${path}/:name`}
+          path={`${path}/:tableName`}
           render={() => (
             <Table
               currentPage={currentPage}

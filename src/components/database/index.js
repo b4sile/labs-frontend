@@ -1,1 +1,1 @@
-export { Database } from './Database';
+export { DatabaseList } from './DatabaseList';

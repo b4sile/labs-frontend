@@ -1,3 +1,4 @@
 export { Gallery } from './gallery';
-export { Parser } from './parser';
-export { Database } from './database';
+export { Parser, Product } from './parser';
+export { DatabaseList } from './database';
+export { Questionnaire } from './questionnaire';
