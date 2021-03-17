@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 
 export const Qshow = () => {
@@ -43,7 +43,7 @@ export const Qshow = () => {
       <div>Личная информация: {personal}</div>
       <div>Зарплата: {salary}</div>
       <div>Языки: {languages}</div>
-      <a href={`/tmp/${file}`} download={file}>
+      <a href={`/${file}`} download>
         Резюме
       </a>
     </div>
