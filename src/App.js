@@ -13,6 +13,7 @@ import {
   Product,
   Questionnaire,
   Qshow,
+  Excel,
 } from './components';
 
 const navList = [
@@ -21,6 +22,7 @@ const navList = [
   { to: '/parser', text: 'Парсер' },
   { to: '/databases', text: 'База данных' },
   { to: '/questionnaire', text: 'Анкета' },
+  { to: '/excel', text: 'Excel' },
 ];
 
 function App() {
@@ -43,6 +45,7 @@ function App() {
             <Route exact path="/gallery" component={Gallery} />
             <Route exact path="/parser" component={Parser} />
             <Route exact path="/questionnaire" component={Questionnaire} />
+            <Route exact path="/excel" component={Excel} />
             <Route exact path="/questionnaire/:id" component={Qshow} />
             <Route exact path="/parser/:id" component={Product} />
             <Route path="/databases" component={DatabaseList} />
